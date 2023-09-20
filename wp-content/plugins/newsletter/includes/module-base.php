@@ -208,7 +208,6 @@ class NewsletterModuleBase {
             return $language_options;
         } else if (function_exists('pll_languages_list')) {
             $languages = pll_languages_list(['fields' => '']);
-            //var_dump($languages);
             foreach ($languages as $data) {
                 $language_options[$data->slug] = $data->name;
             }

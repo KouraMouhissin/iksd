@@ -358,18 +358,19 @@ class TNP_Composer {
      * @param string $prefix
      * @return string
      */
-    static function button($options, $prefix = 'button') {
+    static function button($options, $prefix = 'button', $composer = []) {
 
         if (empty($options[$prefix . '_label'])) {
             return;
         }
+        
         $defaults = [
             $prefix . '_url' => '#',
-            $prefix . '_font_family' => 'Helvetica, Arial, sans-serif',
-            $prefix . '_font_color' => '#ffffff',
-            $prefix . '_font_weight' => 'bold',
-            $prefix . '_font_size' => 20,
-            $prefix . '_background' => '#256F9C',
+            $prefix . '_font_family' => $composer['button_font_family'],
+            $prefix . '_font_color' => $composer['button_font_color'],
+            $prefix . '_font_weight' => $composer['button_font_weight'],
+            $prefix . '_font_size' => $composer['button_font_size'],
+            $prefix . '_background' => $composer['button_background_color'],
             $prefix . '_align' => 'center'
         ];
 

@@ -65,7 +65,9 @@ class NewsletterUsersAdmin extends NewsletterModuleAdmin {
         }
 
         echo '"Feed by mail"' . $sep . '"Follow up"' . $sep;
-        echo '"IP"' . $sep . '"Referrer"' . $sep . '"Country"' . $sep . '"Language"';
+        echo '"IP"' . $sep . '"Referrer"' . $sep . '"Country"' . $sep . '"Language"' . $sep;
+        echo '"ID"' . $sep . '"WP User ID"' . $sep;;
+        
 
         echo "\n";
 
@@ -78,10 +80,13 @@ class NewsletterUsersAdmin extends NewsletterModuleAdmin {
             }
             $recipients = $wpdb->get_results($query . " order by email limit " . $page * 500 . ",500");
             for ($i = 0; $i < count($recipients); $i++) {
-                echo '"' . $recipients[$i]->email . '"' . $sep . '"' . $this->sanitize_csv($recipients[$i]->name) .
-                '"' . $sep . '"' . $this->sanitize_csv($recipients[$i]->surname) .
-                '"' . $sep . '"' . $recipients[$i]->sex .
-                '"' . $sep . '"' . $recipients[$i]->status . '"' . $sep . '"' . $recipients[$i]->created . '"' . $sep . '"' . $recipients[$i]->token . '"' . $sep;
+                echo '"' . $recipients[$i]->email . '"' . $sep;
+                echo '"' . $this->sanitize_csv($recipients[$i]->name) . '"' . $sep;
+                echo '"' . $this->sanitize_csv($recipients[$i]->surname) . '"' . $sep;
+                echo '"' . $recipients[$i]->sex . '"' . $sep;
+                echo '"' . $recipients[$i]->status . '"' . $sep;
+                echo '"' . $recipients[$i]->created . '"' . $sep;
+                echo '"' . $recipients[$i]->token . '"' . $sep;
 
                 for ($j = 1; $j <= NEWSLETTER_PROFILE_MAX; $j++) {
                     $column = 'profile_' . $j;
@@ -95,10 +100,12 @@ class NewsletterUsersAdmin extends NewsletterModuleAdmin {
 
                 echo '"' . $recipients[$i]->feed . '"' . $sep;
                 echo '"' . $recipients[$i]->followup . '"' . $sep;
-                echo '"' . $recipients[$i]->ip . '"' . $sep;
-                echo '"' . $recipients[$i]->referrer . '"' . $sep;
-                echo '"' . $recipients[$i]->country . '"' . $sep;
-                echo '"' . $recipients[$i]->language . '"' . $sep;
+                echo '"' . $this->sanitize_csv($recipients[$i]->ip) . '"' . $sep;
+                echo '"' . $this->sanitize_csv($recipients[$i]->referrer) . '"' . $sep;
+                echo '"' . $this->sanitize_csv($recipients[$i]->country) . '"' . $sep;
+                echo '"' . $this->sanitize_csv($recipients[$i]->language) . '"' . $sep;
+                echo '"' . $recipients[$i]->id . '"' . $sep;
+                echo '"' . $recipients[$i]->wp_user_id . '"' . $sep;
 
                 echo "\n";
                 flush();
@@ -110,6 +117,7 @@ class NewsletterUsersAdmin extends NewsletterModuleAdmin {
         }
         die();
     }
+    
 
     function sanitize_csv($text) {
         $text = str_replace(['"', "\n", "\r", ";"], ["'", " ", " ", " "], $text);

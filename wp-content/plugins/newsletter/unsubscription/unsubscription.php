@@ -27,6 +27,28 @@ class NewsletterUnsubscription extends NewsletterModule {
     }
 
     function hook_newsletter_action($action, $user, $email) {
+        
+        if (isset($_SERVER['HTTP_USER_AGENT'])) {
+            $agent = strtolower($_SERVER['HTTP_USER_AGENT']);
+            if (strpos($agent, 'yahoomailproxy') !== false) {
+                return;
+            }
+            if (strpos($agent, 'googlebot') !== false) {
+                return;
+            }
+            if (strpos($agent, 'yandexbot') !== false) {
+                return;
+            }
+            if (strpos($agent, 'bingbot') !== false) {
+                return;
+            }
+            if (strpos($agent, 'bingpreview') !== false) {
+                return;
+            }
+            if (strpos($agent, 'microsoftpreview') !== false) {
+                return;
+            }
+        }
 
         if (in_array($action, ['u', 'uc', 'lu', 'reactivate'])) {
             if (!$user) {

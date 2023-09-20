@@ -26,3 +26,58 @@
 
 11-09-2023 13:49:32 - INFO  - 7.9.2 - 15,5 Mo/128 Mo -  > Backing up options of 7.9.0
 11-09-2023 13:49:32 - INFO  - 7.9.2 - 15,5 Mo/128 Mo -  > End
+20-09-2023 12:48:49 - INFO  - 7.9.4 - 21,7 Mo/128 Mo -  > Start upgrade from 7.9.2
+20-09-2023 12:48:49 - INFO  - 7.9.4 - 59,3 Mo/128 Mo - [cron] > Start upgrade from 7.9.2
+20-09-2023 12:48:49 - INFO  - 7.9.4 - 25,9 Mo/128 Mo -  > Array
+(
+    [`wp_newsletter_emails`] => Created table `wp_newsletter_emails`
+)
+
+20-09-2023 12:48:49 - INFO  - 7.9.4 - 25,9 Mo/128 Mo -  > Array
+(
+    [`wp_newsletter_sent`] => Created table `wp_newsletter_sent`
+)
+
+20-09-2023 12:48:49 - INFO  - 7.9.4 - 25,9 Mo/128 Mo -  > Array
+(
+    [`wp_newsletter`] => Created table `wp_newsletter`
+)
+
+20-09-2023 12:48:49 - INFO  - 7.9.4 - 25,9 Mo/128 Mo -  > Array
+(
+    [`wp_newsletter_user_logs`] => Created table `wp_newsletter_user_logs`
+)
+
+20-09-2023 12:48:49 - INFO  - 7.9.4 - 25,9 Mo/128 Mo -  > Array
+(
+    [`wp_newsletter_stats`] => Created table `wp_newsletter_stats`
+)
+
+20-09-2023 12:48:49 - INFO  - 7.9.4 - 25,9 Mo/128 Mo -  > Backing up options of 7.9.2
+20-09-2023 12:48:49 - INFO  - 7.9.4 - 25,9 Mo/128 Mo -  > End
+20-09-2023 12:48:49 - INFO  - 7.9.4 - 66,4 Mo/128 Mo - [cron] > Array
+(
+    [`wp_newsletter_emails`] => Created table `wp_newsletter_emails`
+)
+
+20-09-2023 12:48:49 - INFO  - 7.9.4 - 66,5 Mo/128 Mo - [cron] > Array
+(
+    [`wp_newsletter_sent`] => Created table `wp_newsletter_sent`
+)
+
+20-09-2023 12:48:49 - INFO  - 7.9.4 - 66,5 Mo/128 Mo - [cron] > Array
+(
+    [`wp_newsletter`] => Created table `wp_newsletter`
+)
+
+20-09-2023 12:48:49 - INFO  - 7.9.4 - 66,4 Mo/128 Mo - [cron] > Array
+(
+    [`wp_newsletter_user_logs`] => Created table `wp_newsletter_user_logs`
+)
+
+20-09-2023 12:48:49 - INFO  - 7.9.4 - 66,5 Mo/128 Mo - [cron] > Array
+(
+    [`wp_newsletter_stats`] => Created table `wp_newsletter_stats`
+)
+
+20-09-2023 12:48:49 - INFO  - 7.9.4 - 66,5 Mo/128 Mo - [cron] > End

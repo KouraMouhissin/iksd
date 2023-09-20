@@ -1,12 +1,13 @@
 <?php
 
 class NewsletterComposer {
-        
+
     static $instance;
     var $logger;
     var $blocks;
 
-    const presets = ["cta", "invite", "announcement", "posts", "sales", "product", "tour", "simple"];
+    //const presets = ['halloween', 'zen', 'black-friday', "cta", "invite", "announcement", "posts", "sales", "product", "tour", "simple"];
+    const presets = ['halloween', 'zen', "cta", "invite", "announcement", "posts", "sales", "product", "tour", "simple"];
 
     /**
      * 
@@ -333,6 +334,10 @@ class NewsletterComposer {
     function get_preset_composer_options($preset_id) {
 
         if ($this->is_a_tnp_default_preset($preset_id)) {
+            $preset = $this->get_preset_from_file($preset_id);
+            if (!empty($preset->version) && $preset->version == 2) {
+                return (array)$preset->settings;
+            }
             return [];
         }
 
@@ -359,10 +364,26 @@ class NewsletterComposer {
             // Get preset from file
             $preset = $this->get_preset_from_file($preset_id);
 
-            foreach ($preset->blocks as $item) {
-                ob_start();
-                $this->render_block($item->block, true, (array) $item->options);
-                $content .= trim(ob_get_clean());
+            if (!empty($preset->version) && $preset->version == 2) {
+                $composer = (array)$preset->settings;
+                foreach ($preset->blocks as $item) {
+                    $options = (array)$item;
+                    foreach ($options as &$o) {
+                        if (is_object($o)) {
+                            $o = (array)$o;
+                        }
+                    }
+                    ob_start();
+                    $this->render_block($item->block_id, true, $options, [], $composer);
+                    $content .= trim(ob_get_clean());
+                    //die($content);
+                }
+            } else {
+                foreach ($preset->blocks as $item) {
+                    ob_start();
+                    $this->render_block($item->block, true, (array) $item->options);
+                    $content .= trim(ob_get_clean());
+                }
             }
         } else {
             $email = NewsletterEmailsAdmin::instance()->get_email($preset_id);
@@ -389,11 +410,11 @@ class NewsletterComposer {
     function render_block($block_id = null, $wrapper = false, $options = [], $context = [], $composer = []) {
         static $kses_style_filter = false;
         include_once NEWSLETTER_INCLUDES_DIR . '/helper.php';
-        
+
         if (!is_array($options)) {
             $options = [];
         }
-        
+
         // On block first creation we still do not have the defaults... this is a problem we need to address in a new
         // composer version
         $common_defaults = array(
@@ -420,7 +441,10 @@ class NewsletterComposer {
             $composer['width'] = 600;
         }
         
-        $composer['content_width'] = $composer['width'] - intval($options['block_padding_left']) - intval($options['block_padding_right']);
+        $block_padding_right = empty($options['block_padding_right'])?0:intval($options['block_padding_right']);
+        $block_padding_left = empty($options['block_padding_left'])?0:intval($options['block_padding_left']);
+        
+        $composer['content_width'] = $composer['width'] - $block_padding_left - $block_padding_right;
 
         $width = $composer['width'];
         $font_family = 'Helvetica, Arial, sans-serif';
@@ -482,8 +506,6 @@ class NewsletterComposer {
         $align_left = is_rtl() ? 'right' : 'left';
         $align_right = is_rtl() ? 'left' : 'right';
 
-        
-
         ob_start();
         $logger = $this->logger;
         include $block['dir'] . '/block.php';
@@ -501,14 +523,14 @@ class NewsletterComposer {
         // CSS driven by the block
         // Requited for the server side parsing and rendering
         $options['block_id'] = $block_id;
-        
+
         // Fixes missing defaults by some old blocks
         $options = array_merge([
             'block_padding_top' => '0',
             'block_padding_bottom' => '0',
             'block_padding_right' => '0',
             'block_padding_left' => '0'
-        ], $options);
+                ], $options);
 
         $options['block_padding_top'] = (int) str_replace('px', '', $options['block_padding_top']);
         $options['block_padding_bottom'] = (int) str_replace('px', '', $options['block_padding_bottom']);
@@ -585,6 +607,25 @@ class NewsletterComposer {
     }
 
     /**
+     * 
+     * @param TNP_Email $email
+     */
+    function to_json($email) {
+        $data = ['version' => 2];
+        $data['settings'] = $this->extract_composer_options($email);
+        $data['subject'] = $email->subject;
+
+        preg_match_all('/data-json="(.*?)"/m', $email->message, $matches, PREG_PATTERN_ORDER);
+
+        $data['blocks'] = [];
+        foreach ($matches[1] as $match) {
+            $a = html_entity_decode($match, ENT_QUOTES, 'UTF-8');
+            $data['blocks'][] = self::options_decode($a);
+        }
+        echo json_encode($data, JSON_PRETTY_PRINT);
+    }
+
+    /**
      * Regenerates a saved composed email rendering each block. Regeneration is
      * conditioned (possibly) by the context. The context is usually passed to blocks
      * so they can act in the right manner.
@@ -597,7 +638,7 @@ class NewsletterComposer {
      * @return string
      */
     function regenerate($email, $context = []) {
-        
+
         $this->logger->debug('Regenerating email ' . $email->id);
 
         $context = array_merge(['last_run' => 0, 'type' => ''], $context);
@@ -607,7 +648,7 @@ class NewsletterComposer {
         $composer = $this->extract_composer_options($email);
 
         $result = $this->regenerate_blocks($email->message, $context, $composer);
-        
+
         // One block is signalling the email should not be regenerated (usually from Automated)
         if ($result === false) {
             $this->logger->debug('A block stopped the regeneration');
@@ -616,7 +657,7 @@ class NewsletterComposer {
 
         $email->message = TNP_Composer::get_html_open($email) . TNP_Composer::get_main_wrapper_open($email) .
                 $result['content'] . TNP_Composer::get_main_wrapper_close($email) . TNP_Composer::get_html_close($email);
-        
+
         if (!empty($result['subject'])) {
             $email->subject = $result['subject'];
         }
@@ -637,11 +678,11 @@ class NewsletterComposer {
      */
     function regenerate_blocks($content, $context = [], $composer = []) {
         $this->logger->debug('Blocks regeneration started');
-        
+
         preg_match_all('/data-json="(.*?)"/m', $content, $matches, PREG_PATTERN_ORDER);
 
         $this->logger->debug('Found ' . count($matches[1]) . ' blocks');
-        
+
         // Compatibility
         $width = $composer['width'];
 
@@ -650,7 +691,7 @@ class NewsletterComposer {
         foreach ($matches[1] as $match) {
             $a = html_entity_decode($match, ENT_QUOTES, 'UTF-8');
             $options = $this->options_decode($a);
-            
+
             $this->logger->debug('Regenerating block ' . $options['block_id']);
 
             $block = $this->get_block($options['block_id']);
@@ -678,9 +719,9 @@ class NewsletterComposer {
             $block_html = ob_get_clean();
             $result['content'] .= $block_html;
         }
-        
+
         $this->logger->debug('Blocks regeneration completed');
-        
+
         return $result;
     }
 

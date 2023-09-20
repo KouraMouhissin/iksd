@@ -462,9 +462,13 @@ class NewsletterModuleAdmin extends NewsletterModuleBase {
         $customfields = [];
 
         for ($i = 1; $i <= NEWSLETTER_PROFILE_MAX; $i++) {
-            $field = new TNP_Profile($i, $options['profile_' . $i]);
-            $field->type = $options['profile_' . $i . '_type'];
-
+            if (empty($options['profile_' . $i])) {
+                $field = new TNP_Profile($i, '');
+                $field->type = TNP_Profile::TYPE_TEXT;
+            } else {
+                $field = new TNP_Profile($i, $options['profile_' . $i]);
+                $field->type = $options['profile_' . $i . '_type'];
+            }
             $customfields['' . $i] = $field;
         }
 

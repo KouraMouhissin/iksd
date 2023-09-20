@@ -96,11 +96,7 @@
 }
 
 #tnpc-subject-wrap .composer-view-mode {
-    display: flex;
-}
-
-#tnpc-subject-wrap .composer-view-mode .composer-view-mode__item {
-    display: block;
+display: block;
     width: 30px;
     height: 30px;
     line-height: 30px;
@@ -109,23 +105,13 @@
     margin-left: 3px;
     border-radius: 3px;
     border: solid 1px #3c434a;
-    background-color: #FFF;
-    color: #3c434a;
     font-size: 12px;
     cursor: pointer;
-}
-
-#tnpc-subject-wrap .composer-view-mode .composer-view-mode__item--active {
     background-color: #2b2f3a;
     border-color: #2b2f3a;
     color: #FFF;
 }
 
-#tnpc-subject-wrap .composer-view-mode .composer-view-mode__item:hover{
-    background-color: #3c434a;
-    border-color: #3c434a;
-    color: #FFF;
-}
 
 .composer-actions .button-primary {
     background-color: #2b2f3a;
@@ -769,6 +755,12 @@
     width: 50px;
     height: 50px;
     margin-top: 50px;
+}
+
+.tnpc-preset.tnpc-preset2 img {
+    width: auto;
+    height: 110px;
+    margin-top: 15px;
 }
 
 .tnpc-preset-label {

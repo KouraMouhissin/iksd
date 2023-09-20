@@ -161,46 +161,37 @@ if ($controls->is_action()) {
         display: inline-block;
         /*margin-left: 30px;*/
     }
+
+    #wpfooter {
+        display: none;
+    }
 </style>
 
 
 
 <div class="wrap tnp-emails-composer" id="tnp-wrap">
 
-    <div id="tnp-notification">
-        <?php
-        $controls->show();
-        $controls->messages = '';
-        $controls->errors = '';
-        ?>
-    </div>
-
     <div id="tnp-body" style="display: flex; flex-direction: column">
+
+        <?php $controls->show() ?>
+
+        <form method="post" action="" id="tnpc-form" style="margin-top: 1rem">
+            <?php $controls->init(); ?>
+
+            <?php $controls->composer_fields_v2(); ?>
+
+            <?php //$controls->button('update_preset', __('Update preset', 'newsletter'), 'tnpc_update_preset(this.form)', 'update-preset-button'); ?>
+            <?php //$controls->button('save_preset', __('Save as preset', 'newsletter'), 'tnpc_save_preset(this.form)', 'save-preset-button'); ?>
+            <?php $controls->button_confirm_secondary('reset', __('Back to last save', 'newsletter'), 'Are you sure?'); ?>
+            <?php $controls->button('save', __('Save', 'newsletter'), 'tnpc_save(this.form); this.form.submit();'); ?>
+            <?php $controls->button('preview', __('Next', 'newsletter') . ' &raquo;', 'tnpc_save(this.form); this.form.submit();'); ?>
+        </form>
 
         <div>
             <?php $controls->composer_load_v2(true); ?>
         </div>
 
-        <div class="tnp-composer-footer">
-            <div class="tnpc-logo">
-                The Newsletter Plugin <strong>Composer</strong>
-            </div>
-            <div class="tnpc-controls">
-                <form method="post" action="" id="tnpc-form">
-                    <?php $controls->init(); ?>
 
-                    <?php $controls->composer_fields_v2(); ?>
-
-
-
-                    <?php $controls->button('update_preset', __('Update preset', 'newsletter'), 'tnpc_update_preset(this.form)', 'update-preset-button'); ?>
-                    <?php $controls->button('save_preset', __('Save as preset', 'newsletter'), 'tnpc_save_preset(this.form)', 'save-preset-button'); ?>
-                    <?php $controls->button_confirm('reset', __('Back to last save', 'newsletter'), 'Are you sure?'); ?>
-                    <?php $controls->button('save', __('Save', 'newsletter'), 'tnpc_save(this.form); this.form.submit();'); ?>
-                    <?php $controls->button('preview', __('Next', 'newsletter') . ' &raquo;', 'tnpc_save(this.form); this.form.submit();'); ?>
-                </form>
-            </div>
-        </div>
 
     </div>
 </div>

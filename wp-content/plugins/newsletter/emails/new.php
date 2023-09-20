@@ -26,7 +26,8 @@ $theme = $this->themes->get_theme($theme_id);
 
 // Should never happen
 if (!$theme) {
-    die('Invalid theme');
+    echo 'Invalid theme';
+    return;
 }
 
 if (!file_exists($theme['dir'] . '/theme-options.php') && check_admin_referer('newsletter-new')) {

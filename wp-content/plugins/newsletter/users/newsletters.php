@@ -8,7 +8,8 @@ $id = (int) $_GET['id'];
 $user = $this->get_user($id);
 
 if (!$user) {
-    die('Subscriber not found.');
+    echo 'Subscriber not found.';
+    return;
 }
 
 if ($controls->is_action('save')) {

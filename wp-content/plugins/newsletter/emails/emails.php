@@ -193,7 +193,30 @@ class NewsletterEmails extends NewsletterModule {
 
                 die();
                 break;
+                
+            case 'json':
+if (!$this->is_allowed()) {
 
+
+                        header("HTTP/1.0 404 Not Found");
+                        die('Not sent yet');
+                }
+                    $email = $this->get_email($_GET['id']);
+
+                if (empty($email)) {
+                    header("HTTP/1.0 404 Not Found");
+                    die('Email not found');
+                }
+
+                header('Content-Type: application/json;charset=UTF-8');
+                header('X-Robots-Tag: noindex,nofollow,noarchive');
+                header('Cache-Control: no-cache,no-store,private');
+                
+                echo NewsletterComposer::instance()->to_json($email);
+
+                die();
+                break;
+                
             case 'emails-css':
                 $email_id = (int) $_GET['id'];
 

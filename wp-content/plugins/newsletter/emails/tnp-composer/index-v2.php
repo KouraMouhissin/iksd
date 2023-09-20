@@ -89,21 +89,21 @@ $rev_dir = is_rtl() ? 'ltr' : 'rlt';
 
                 <div class="composer-actions">
 
+                    <div class="button-primary" onclick="tnpc_show_presets_modal()" title="<?php esc_attr_e('Template', 'newsletter')?>">
+                        <i class="far fa-file"></i>
+                    </div>
                     <div class="button-primary" data-tnp-modal-target="#attachment-modal">
                         <i class="fas fa-paperclip"></i>
                     </div>
 
                     <?php if ($show_test) { ?>
-                        <div class="button-primary" data-tnp-modal-target="#test-newsletter-modal">
-                            <i class="fas fa-paper-plane"></i> <?php _e('Test', 'newsletter') ?>
+                        <div class="button-primary" data-tnp-modal-target="#test-newsletter-modal" title="<?php esc_attr_e('Test', 'newsletter')?>">
+                            <i class="fas fa-paper-plane"></i> <?php //_e('Test', 'newsletter') ?>
                         </div>
                     <?php } ?>
 
                     <div class="composer-view-mode">
-
-                        <span class="composer-view-mode__item" data-view-mode="desktop"><i class="fas fa-desktop"></i></span>
-
-                        <span class="composer-view-mode__item" data-view-mode="mobile"><i class="fas fa-mobile"></i></span>
+                       <i id="composer-view-mode-icon" class="fas fa-desktop"></i>
                     </div>
 
                 </div>

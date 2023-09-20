@@ -106,7 +106,8 @@ if ($controls->is_action('change_status')) {
 
     // Status validation
     if (!TNP_User::is_status_valid($status_1) || !TNP_User::is_status_valid($status_2)) {
-        die('Invalid status value');
+        echo 'Invalid status value';
+        return;
     }
 
     $count = $wpdb->query($wpdb->prepare("update `" . NEWSLETTER_USERS_TABLE . "` set status=%s where status=%s", $status_2, $status_1));

@@ -83,7 +83,7 @@ $button_options['button_background'] = empty($options['button_background']) ? $g
 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin: 0; border-collapse: collapse;">
     <tr>
         <td align="<?php echo esc_attr($options['align']) ?>">
-            <?php echo TNP_Composer::button($button_options); ?>
+            <?php echo TNP_Composer::button($button_options, 'button', $composer); ?>
         </td>
     </tr>
 </table>

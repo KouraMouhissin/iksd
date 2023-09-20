@@ -928,23 +928,19 @@ jQuery(function () {
 // ======================================================================= //
 
     (function composerModeViewIIFE($) {
-        const activeClass = 'composer-view-mode__item--active';
+
         var status = 'desktop';
 
-        $('.composer-view-mode__item[data-view-mode="' + status + '"]').addClass(activeClass);
 
-        $('.composer-view-mode__item').on('click', function () {
-            var $el = $(this);
-
-            if ($el.data('viewMode') === 'desktop') {
-                status = 'desktop';
-                $('.composer-view-mode__item[data-view-mode="desktop"]').addClass(activeClass);
-                $('.composer-view-mode__item[data-view-mode="mobile"]').removeClass(activeClass);
-            } else if ($el.data('viewMode') === 'mobile') {
+        $('.composer-view-mode').on('click', function () {
+            if (status === 'desktop') {
                 status = 'mobile';
-                $('.composer-view-mode__item[data-view-mode="desktop"]').removeClass(activeClass);
-                $('.composer-view-mode__item[data-view-mode="mobile"]').addClass(activeClass);
+                document.getElementById('composer-view-mode-icon').className = 'fas fa-mobile';
+            } else {
+                status = 'desktop';
+                document.getElementById('composer-view-mode-icon').className = 'fas fa-desktop';
             }
+            
 
             tnp_view(status);
         });

@@ -51,6 +51,8 @@ class NewsletterEmailsAdmin extends NewsletterModuleAdmin {
         $this->add_admin_page('composer', 'The Composer');
         $this->add_admin_page('editorhtml', 'HTML Editor');
         $this->add_admin_page('editortinymce', 'TinyMCE Editor');
+        $this->add_admin_page('presets', 'Presets');
+        $this->add_admin_page('presets-edit', 'Presets');
     }
 
     function get_preset_content($preset_id) {
@@ -332,19 +334,30 @@ class NewsletterEmailsAdmin extends NewsletterModuleAdmin {
             $content .= "<div class='tnpc-preset' onclick='" . esc_attr($onclick_load) . "'>\n";
             $content .= "<img src='$default_icon_url' title='" . esc_attr($preset_name) . "' alt='" . esc_attr($preset_name) . "'>\n";
             $content .= "<span class='tnpc-preset-label'>" . esc_html($user_preset->subject) . "</span>\n";
-            $content .= "<span class='tnpc-delete-preset' onclick='" . esc_attr($onclick_delete) . "' title='" . esc_attr($delete_preset_text) . "'><i class='fas fa-times'></i></span>\n";
-            $content .= "<span class='tnpc-edit-preset' onclick='" . esc_attr($onclick_edit) . "' title='" . esc_attr($edit_preset_text) . "'><i class='fas fa-pencil-alt'></i></span>\n";
+            //$content .= "<span class='tnpc-delete-preset' onclick='" . esc_attr($onclick_delete) . "' title='" . esc_attr($delete_preset_text) . "'><i class='fas fa-times'></i></span>\n";
+            //$content .= "<span class='tnpc-edit-preset' onclick='" . esc_attr($onclick_edit) . "' title='" . esc_attr($edit_preset_text) . "'><i class='fas fa-pencil-alt'></i></span>\n";
             $content .= "</div>";
         }
 
         // LOAD TNP PRESETS
         foreach (NewsletterComposer::presets as $id) {
             $preset = NewsletterComposer::instance()->get_preset_from_file($id);
-            $preset_name = esc_html($preset->name);
-            $content .= "<div class='tnpc-preset' onclick='tnpc_load_preset(\"$id\")'>";
-            $content .= "<img src='$preset->icon' title='$preset_name' alt='$preset_name'/>";
-            $content .= "<span class='tnpc-preset-label'>$preset_name</span>";
-            $content .= "</div>";
+            
+            if (!empty($preset->version) && $preset->version == 2) {
+                $preset_name = $preset->subject;
+            }
+            else {
+                $preset_name = $preset->name;
+            }
+            
+            if (!empty($preset->version) && $preset->version == 2) {
+                $content .= '<div class="tnpc-preset tnpc-preset2" onclick="tnpc_load_preset(\'' . esc_attr($id) . '\')">';
+            } else {
+                $content .= '<div class="tnpc-preset" onclick="tnpc_load_preset(\'' . esc_attr($id) . '\')">';
+            }
+            $content .= '<img src="' . esc_attr($preset->icon) . '" title="' . esc_attr($preset_name) . '" alt="' . esc_attr($preset_name) . '">';
+            $content .= '<span class="tnpc-preset-label">' . esc_html($preset_name) . '</span>';
+            $content .= '</div>';
         }
 
         if ($this->is_normal_context_request()) {
@@ -511,5 +524,5 @@ class NewsletterEmailsAdmin extends NewsletterModuleAdmin {
 
         return $messages;
     }
-
+    
 }

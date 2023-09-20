@@ -1962,6 +1962,7 @@ span.tnp-user-status {
     position: relative;
     width: 400px;
     max-width: 100%;
+    background-color: #eee;
 }
 
 #tnp-body .tnpc-media-remove {

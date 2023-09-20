@@ -1932,7 +1932,7 @@ tnp_controls_init();
         if ($show_empty_option) {
             echo "<option value=''>-</option>";
         }
-        for ($i = 8; $i <= 50; $i++) {
+        for ($i = 8; $i <= 100; $i++) {
             echo '<option value="' . $i . '"';
             if ($value == $i) {
                 echo ' selected';

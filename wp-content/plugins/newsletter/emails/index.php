@@ -7,6 +7,22 @@ defined('ABSPATH') || exit;
 
 require_once NEWSLETTER_INCLUDES_DIR . '/paginator.php';
 
+if ($controls->is_action('template')) {
+    $original = $this->get_email($_POST['btn']);
+    $email = [];
+    $email['subject'] = $original->subject;
+    $email['message'] = $original->message;
+    $email['message_text'] = $original->message_text;
+    $email['send_on'] = 0;
+    $email['type'] = 'composer_template';
+    $email['editor'] = NewsletterEmails::EDITOR_COMPOSER;
+    $email['track'] = '1';
+    $email['options'] = $original->options;
+
+    $this->save_email($email);
+    $controls->messages .= __('Template created.', 'newsletter');
+}
+
 if ($controls->is_action('copy')) {
     $original = $this->get_email($_POST['btn']);
     $email = array();
@@ -39,15 +55,19 @@ $emails = $pagination_controller->get_items();
 
 <div class="wrap tnp-emails tnp-emails-index" id="tnp-wrap">
 
-    <?php include NEWSLETTER_DIR . '/tnp-header.php'; ?>
+    <?php include NEWSLETTER_ADMIN_HEADER ?>
 
     <div id="tnp-heading">
 
         <h2><?php _e('Newsletters', 'newsletter') ?></h2>
+        
+        <?php include __DIR__ . '/nav.php' ?>
 
     </div>
 
     <div id="tnp-body">
+        
+        <?php $controls->show() ?>
 
         <form method="post" action="">
             <?php $controls->init(); ?>
@@ -112,6 +132,10 @@ $emails = $pagination_controller->get_items();
                             <td style="white-space: nowrap">
                                 <?php $controls->button_icon_copy($email->id); ?>
                                 <?php $controls->button_icon_delete($email->id, ['secondary'=>true]); ?>
+                                <?php $controls->btn('template', 'T', ['data'=>$email->id, 'tertiary'=>true, 'confirm'=>'Create a template from this newsletter?']); ?>
+                                <?php if (NEWSLETTER_DEBUG) { ?>
+                                <?php $controls->btn_link(home_url('/') . '?na=json&id=' . $email->id, '{}') ?>
+                                <?php } ?>
                             </td>
                         </tr>
                     <?php } ?>

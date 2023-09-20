@@ -59,5 +59,6 @@ if ($options['view_enabled']) {
     }
 </style>
 
+<div dir="<?php echo $dir ?>">
 <?php echo implode('<span inline-class="text">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>', $links) ?>
-
+</div>

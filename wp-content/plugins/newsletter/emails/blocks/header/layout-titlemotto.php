@@ -18,7 +18,7 @@ $text_style = TNP_Composer::get_text_style($options, '', $composer);
 
 </style>
 
-<table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin: 0; border-collapse: collapse;">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin: 0; border-collapse: collapse;" dir="<?php echo $dir ?>">
     <tr>
         <td align="center" width="100%">
             <a href="<?php echo home_url() ?>" target="_blank" inline-class="title">

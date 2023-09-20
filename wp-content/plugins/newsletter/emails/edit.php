@@ -154,7 +154,7 @@ if ($controls->is_action('test') || $controls->is_action('save') || $controls->i
         unset($email['options']['lists_operator']);
         unset($email['options']['lists_exclude']);
         unset($email['options']['sex']);
-        for ($i = 1; $i <= 20; $i++) {
+        for ($i = 1; $i <= NEWSLETTER_PROFILE_MAX; $i++) {
             unset($email['options']["profile_$i"]);
         }
 

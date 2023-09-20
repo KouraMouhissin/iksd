@@ -182,7 +182,7 @@ class NewsletterSubscription extends NewsletterModule {
                 return;
         }
     }
-    
+
     function get_options($set = '', $language = null) {
         // This is a patch for addon using the "profile" set which originally contained the
         // form options. This patch can create a problem if someone calls this method to get the actual
@@ -192,7 +192,7 @@ class NewsletterSubscription extends NewsletterModule {
             $set = 'form';
         }
         return parent::get_options($set, $language);
-    }    
+    }
 
     function get_form_options() {
         return $this->get_options('form');
@@ -553,7 +553,7 @@ class NewsletterSubscription extends NewsletterModule {
     function add_microdata($message) {
         return $message . '<span itemscope itemtype="http://schema.org/EmailMessage"><span itemprop="description" content="Email address confirmation"></span><span itemprop="action" itemscope itemtype="http://schema.org/ConfirmAction"><meta itemprop="name" content="Confirm Subscription"><span itemprop="handler" itemscope itemtype="http://schema.org/HttpActionHandler"><meta itemprop="url" content="{subscription_confirm_url}"><link itemprop="method" href="http://schema.org/HttpRequestMethod/POST"></span></span></span>';
     }
-    
+
     function get_language_from_request() {
         return isset($_REQUEST['nlang']) ? trim(strip_tags($_REQUEST['nlang'])) : $this->language();
     }
@@ -1150,7 +1150,7 @@ class NewsletterSubscription extends NewsletterModule {
                 }
             }
         }
-        
+
         $b .= '<input type="hidden" name="nlang" value="' . esc_attr($this->language()) . '">';
 
         return $b;
@@ -1710,7 +1710,7 @@ class NewsletterSubscription extends NewsletterModule {
         if ($executing) {
             return '';
         }
-       
+
 
         $executing = true;
 
@@ -1742,6 +1742,7 @@ class NewsletterSubscription extends NewsletterModule {
             // Obsolete
             if (isset($attrs['show_form']) && $attrs['show_form'] === 'false') {
                 //return $this->build_field_admin_notice('The [newsletter] shortcode is configured to not show the subscription form.');
+                $executing = false;
                 return;
             }
 
@@ -1774,6 +1775,7 @@ class NewsletterSubscription extends NewsletterModule {
             // slashes are already added by wordpress!
             $message .= '<script>alert("' . esc_js(strip_tags($_REQUEST['alert'])) . '");</script>';
         }
+        $executing = false;
 
         return $message;
     }

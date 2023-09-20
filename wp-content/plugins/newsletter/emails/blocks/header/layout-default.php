@@ -28,7 +28,7 @@ if ($media) {
     }
 </style>
 
-<table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin: 0; border-collapse: collapse;">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin: 0; border-collapse: collapse;" dir="<?php echo $dir ?>">
     <tr>
         <td align="center" width="50%" inline-class="logo">
             <?php if ($media) { ?>

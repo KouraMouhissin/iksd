@@ -35,7 +35,7 @@ $title_style = TNP_Composer::get_title_style($options, '', $composer);
 
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
     <tr>
-        <td align="<?php echo esc_attr($options['align']) ?>" valign="middle" inline-class="title">
+        <td align="<?php echo esc_attr($options['align']) ?>" valign="middle" inline-class="title" dir="<?php echo $dir ?>">
             <?php echo $options['text'] ?>
         </td>
     </tr>

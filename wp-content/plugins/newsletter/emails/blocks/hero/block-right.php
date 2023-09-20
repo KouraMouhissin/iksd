@@ -63,7 +63,7 @@ if ($media) {
         <?php } ?>
         <tr>
             <td align="center" inline-class="button" dir="ltr">
-                <?php echo TNP_Composer::button($button_options) ?>
+                <?php echo TNP_Composer::button($button_options, 'button', $composer) ?>
             </td>
         </tr>
     </table>

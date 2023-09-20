@@ -114,7 +114,7 @@ $text_style = TNP_Composer::get_style($options, '', $composer, 'text');
                     <?php if ($show_read_more_button) { ?>
                         <tr>
                             <td align="<?php echo $align_left ?>" inline-class="button">
-                                <?php echo TNP_Composer::button($button_options) ?>
+                                <?php echo TNP_Composer::button($button_options, 'button', $composer) ?>
                             </td>
                         </tr>
                     <?php } ?>

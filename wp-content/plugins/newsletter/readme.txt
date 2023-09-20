@@ -1,7 +1,7 @@
 === Newsletter - Send awesome emails from WordPress ===
 Tags: newsletter, email marketing, welcome email, signup forms, lead generation, marketing automation
 Tested up to: 6.3.1
-Stable tag: 7.9.2
+Stable tag: 7.9.4
 Contributors: satollo,webagile,michael-travan
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -125,6 +125,22 @@ Thank you, The Newsletter Team
 3. The Reports extension
 
 == Changelog ==
+
+= 7.9.4 =
+
+* Fixed list max change and database upgrade
+* Added a couple of templates
+* Fixed debug notice on some composer blocks when WP_DEBUG is active
+
+= 7.9.3 =
+
+* Added check on custom fields when the configuration is missing
+* Added twitter new logo
+* New template management panel
+* Fix attempt for shortcode not working on some blogs
+* Added subscriber ID and connected WP User ID on export
+* Newsletter list panel aligned with the new layout
+* Added the template change on the composer
 
 = 7.9.2 =
 

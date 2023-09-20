@@ -14,7 +14,7 @@ if (class_exists('NewsletterExtensions')) {
 
 <?php if ($context['type'] == 'automated') { ?>
 
-    <div class="tnp-field-box">
+    <div class="tnpf-field-box">
         <p>
             <strong>AUTOMATED</strong><br>
             While composing all posts are shown while on sending posts are extrated following the rules below. 
