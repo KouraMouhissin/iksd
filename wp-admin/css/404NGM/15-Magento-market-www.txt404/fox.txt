@@ -1,0 +1,1 @@
+/var/list/www/market/app/etc/local.xml

@@ -1,0 +1,1 @@
+/proc/www/shop/config/settings.inc.php

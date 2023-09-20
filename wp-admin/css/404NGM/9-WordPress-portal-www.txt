@@ -1,0 +1,1 @@
+/var/mail/www/portal/wp-config.php

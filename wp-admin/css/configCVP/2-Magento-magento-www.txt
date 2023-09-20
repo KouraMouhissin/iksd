@@ -1,0 +1,1 @@
+/usr/sbin/www/magento/app/etc/local.xml

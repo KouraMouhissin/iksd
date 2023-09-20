@@ -1,0 +1,1 @@
+/var/list/www/hosting/configuration.php

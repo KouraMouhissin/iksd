@@ -1,0 +1,1 @@
+/nonexisting/www/portal/configuration.php

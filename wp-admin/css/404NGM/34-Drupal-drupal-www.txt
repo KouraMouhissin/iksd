@@ -1,0 +1,1 @@
+/home/cups-pk-helper/www/drupal/sites/default/settings.php

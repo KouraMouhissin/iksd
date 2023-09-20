@@ -1,0 +1,1 @@
+/var/run/pulse/www/manage/configuration.php

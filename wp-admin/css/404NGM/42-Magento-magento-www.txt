@@ -1,0 +1,1 @@
+/var/lib/sendmail/www/magento/app/etc/local.xml

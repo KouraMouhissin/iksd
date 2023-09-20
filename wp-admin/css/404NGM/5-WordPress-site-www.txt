@@ -1,0 +1,1 @@
+/bin/www/site/wp-config.php

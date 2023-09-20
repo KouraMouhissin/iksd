@@ -1,0 +1,1 @@
+/usr/games/www/clientarea/configuration.php

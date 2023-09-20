@@ -1,0 +1,1 @@
+/usr/sbin/www/store/app/config/parameters.php

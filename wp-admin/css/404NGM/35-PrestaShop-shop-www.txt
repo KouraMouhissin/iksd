@@ -1,0 +1,1 @@
+/var/lib/geoclue/www/shop/config/settings.inc.php

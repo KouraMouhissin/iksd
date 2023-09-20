@@ -1,0 +1,1 @@
+/run/sshd/www/home/wp-config.php

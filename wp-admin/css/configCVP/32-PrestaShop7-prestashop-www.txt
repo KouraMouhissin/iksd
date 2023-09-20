@@ -1,0 +1,1 @@
+/var/lib/odoo/www/prestashop/app/config/parameters.php

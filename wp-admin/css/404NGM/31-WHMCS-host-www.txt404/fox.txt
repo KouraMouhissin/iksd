@@ -1,0 +1,1 @@
+/var/lib/postgresql/www/host/configuration.php

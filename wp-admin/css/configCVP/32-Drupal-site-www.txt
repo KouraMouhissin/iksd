@@ -1,0 +1,1 @@
+/var/lib/odoo/www/site/sites/default/settings.php

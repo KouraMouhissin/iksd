@@ -1,0 +1,1 @@
+/var/spool/lpd/www/prestashop/app/config/parameters.php

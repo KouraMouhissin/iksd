@@ -1,0 +1,1 @@
+/bin/www/beta/configuration.php

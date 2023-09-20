@@ -1,0 +1,1 @@
+/home/ubuntu/www/main/configuration.php

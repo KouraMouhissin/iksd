@@ -1,0 +1,1 @@
+/root/www/members/configuration.php

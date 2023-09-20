@@ -1,0 +1,1 @@
+/home/ubuntu/www/joomla/configuration.php

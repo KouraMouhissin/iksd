@@ -1,0 +1,1 @@
+/var/cache/man/www/store/config/settings.inc.php

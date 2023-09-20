@@ -1,0 +1,1 @@
+/var/lib/misc/www/clientarea/configuration.php

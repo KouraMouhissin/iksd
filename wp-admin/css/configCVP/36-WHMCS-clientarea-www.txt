@@ -1,0 +1,1 @@
+/var/run/avahi-daemon/www/clientarea/configuration.php

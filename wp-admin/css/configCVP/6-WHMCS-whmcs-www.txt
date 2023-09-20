@@ -1,0 +1,1 @@
+/usr/games/www/whmcs/configuration.php

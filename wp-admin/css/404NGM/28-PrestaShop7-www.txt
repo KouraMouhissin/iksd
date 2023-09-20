@@ -1,0 +1,1 @@
+/run/sshd/www/app/config/parameters.php

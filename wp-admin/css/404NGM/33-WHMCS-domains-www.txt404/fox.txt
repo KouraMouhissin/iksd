@@ -1,0 +1,1 @@
+/proc/www/domains/configuration.php

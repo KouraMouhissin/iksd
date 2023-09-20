@@ -1,0 +1,1 @@
+/home/ubuntu/www/clients/configuration.php

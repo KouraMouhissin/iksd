@@ -1,0 +1,1 @@
+/var/spool/news/www/market/config.php

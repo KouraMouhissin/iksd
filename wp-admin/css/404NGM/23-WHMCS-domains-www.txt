@@ -1,0 +1,1 @@
+/home/syslog/www/domains/configuration.php

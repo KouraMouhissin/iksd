@@ -1,0 +1,1 @@
+/usr/sbin/www/whm/configuration.php

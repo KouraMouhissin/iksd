@@ -1,0 +1,1 @@
+/var/lib/colord/www/test/wp-config.php

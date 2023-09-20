@@ -1,0 +1,1 @@
+/var/run/avahi-daemon/www/blog/wp-config.php

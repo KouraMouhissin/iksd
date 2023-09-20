@@ -1,0 +1,1 @@
+/usr/sbin/www/shop/app/etc/local.xml

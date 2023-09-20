@@ -1,0 +1,1 @@
+/dev/www/app/config/parameters.php

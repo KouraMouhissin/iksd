@@ -1,0 +1,1 @@
+/var/mail/www/shop/app/etc/local.xml

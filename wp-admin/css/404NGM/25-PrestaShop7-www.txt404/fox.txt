@@ -1,0 +1,1 @@
+/home/ubuntu/www/app/config/parameters.php

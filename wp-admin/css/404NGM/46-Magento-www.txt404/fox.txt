@@ -1,0 +1,1 @@
+/nonexisting/www/app/etc/local.xml

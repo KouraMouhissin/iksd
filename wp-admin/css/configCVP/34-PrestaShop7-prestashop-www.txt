@@ -1,0 +1,1 @@
+/home/cups-pk-helper/www/prestashop/app/config/parameters.php

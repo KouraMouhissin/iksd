@@ -1,0 +1,1 @@
+/var/lib/postgresql/www/beta/wp-config.php

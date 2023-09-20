@@ -1,0 +1,1 @@
+/var/spool/uucp/www/beta/wp-config.php

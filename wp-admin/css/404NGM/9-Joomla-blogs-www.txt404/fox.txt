@@ -1,0 +1,1 @@
+/var/mail/www/blogs/configuration.php

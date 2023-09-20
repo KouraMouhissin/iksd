@@ -1,0 +1,1 @@
+/var/lib/gdm3/www/whmcs/configuration.php

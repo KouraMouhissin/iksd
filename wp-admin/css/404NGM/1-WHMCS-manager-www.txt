@@ -1,0 +1,1 @@
+/root/www/manager/configuration.php

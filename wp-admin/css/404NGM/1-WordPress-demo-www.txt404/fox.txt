@@ -1,0 +1,1 @@
+/root/www/demo/wp-config.php

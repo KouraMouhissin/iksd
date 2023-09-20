@@ -1,0 +1,1 @@
+/var/www/www/painel/configuration.php

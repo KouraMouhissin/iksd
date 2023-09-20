@@ -1,0 +1,1 @@
+/var/lib/colord/www/opencart/config.php

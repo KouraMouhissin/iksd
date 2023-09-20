@@ -1,0 +1,1 @@
+/home/syslog/www/portal/sites/default/settings.php

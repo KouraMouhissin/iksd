@@ -1,0 +1,1 @@
+/var/lib/geoclue/www/web/wp-config.php

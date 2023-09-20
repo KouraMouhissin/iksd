@@ -1,0 +1,1 @@
+/run/sshd/www/beta/wp-config.php

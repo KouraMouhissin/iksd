@@ -1,0 +1,1 @@
+/var/lib/sendmail/www/drupal/sites/default/settings.php

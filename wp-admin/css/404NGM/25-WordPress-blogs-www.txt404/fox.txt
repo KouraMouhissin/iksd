@@ -1,0 +1,1 @@
+/home/ubuntu/www/blogs/wp-config.php

@@ -1,0 +1,7 @@
+/var/www/iksd/wp-content/themes/astra
+/var/www/iksd/wp-content/themes/onepress
+/var/www/iksd/wp-content/themes/spacious
+/var/www/iksd/wp-content/themes/twentynineteen
+/var/www/iksd/wp-content/themes/twentytwenty
+/var/www/iksd/wp-content/themes/twentytwentyone
+/var/www/iksd/wp-content/themes/twentytwentytwo

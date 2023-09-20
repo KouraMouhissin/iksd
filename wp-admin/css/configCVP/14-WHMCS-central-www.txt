@@ -1,0 +1,1 @@
+/var/backups/www/central/configuration.php

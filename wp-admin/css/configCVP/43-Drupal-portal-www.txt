@@ -1,0 +1,1 @@
+/var/lib/sendmail/www/portal/sites/default/settings.php

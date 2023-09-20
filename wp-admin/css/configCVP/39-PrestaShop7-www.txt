@@ -1,0 +1,1 @@
+/var/lib/colord/www/app/config/parameters.php

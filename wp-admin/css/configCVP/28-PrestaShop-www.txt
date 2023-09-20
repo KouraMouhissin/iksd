@@ -1,0 +1,1 @@
+/run/sshd/www/config/settings.inc.php

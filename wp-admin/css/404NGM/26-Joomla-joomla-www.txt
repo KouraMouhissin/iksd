@@ -1,0 +1,1 @@
+//www/joomla/configuration.php

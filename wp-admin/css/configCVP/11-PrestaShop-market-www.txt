@@ -1,0 +1,1 @@
+/var/spool/uucp/www/market/config/settings.inc.php

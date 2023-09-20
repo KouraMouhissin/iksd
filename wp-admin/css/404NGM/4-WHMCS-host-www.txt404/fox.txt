@@ -1,0 +1,1 @@
+/dev/www/host/configuration.php

@@ -1,0 +1,1 @@
+/home/ubuntu/www/shop/config/settings.inc.php

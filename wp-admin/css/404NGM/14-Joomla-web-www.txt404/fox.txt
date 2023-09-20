@@ -1,0 +1,1 @@
+/var/backups/www/web/configuration.php

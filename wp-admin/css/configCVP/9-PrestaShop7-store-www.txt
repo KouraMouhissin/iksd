@@ -1,0 +1,1 @@
+/var/mail/www/store/app/config/parameters.php

@@ -1,0 +1,1 @@
+/proc/www/site/wp-config.php

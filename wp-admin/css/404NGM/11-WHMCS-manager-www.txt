@@ -1,0 +1,1 @@
+/var/spool/uucp/www/manager/configuration.php

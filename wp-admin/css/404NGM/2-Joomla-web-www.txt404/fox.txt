@@ -1,0 +1,1 @@
+/usr/sbin/www/web/configuration.php

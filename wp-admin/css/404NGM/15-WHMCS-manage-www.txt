@@ -1,0 +1,1 @@
+/var/list/www/manage/configuration.php

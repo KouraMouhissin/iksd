@@ -1,0 +1,1 @@
+/run/systemd/www/shop/app/config/parameters.php

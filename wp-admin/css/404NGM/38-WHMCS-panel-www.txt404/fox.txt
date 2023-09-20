@@ -1,0 +1,1 @@
+/var/lib/saned/www/panel/configuration.php

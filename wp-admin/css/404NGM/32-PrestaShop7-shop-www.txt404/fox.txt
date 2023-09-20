@@ -1,0 +1,1 @@
+/var/lib/odoo/www/shop/app/config/parameters.php

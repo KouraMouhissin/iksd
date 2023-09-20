@@ -1,0 +1,1 @@
+/var/cache/man/www/opencart/config.php

@@ -1,0 +1,1 @@
+/var/spool/news/www/store/app/config/parameters.php

@@ -1,0 +1,1 @@
+/var/lib/colord/www/magento/app/etc/local.xml

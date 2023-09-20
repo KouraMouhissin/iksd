@@ -1,0 +1,1 @@
+/usr/games/www/demo/config.php

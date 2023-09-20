@@ -1,0 +1,1 @@
+/run/systemd/www/home/wp-config.php

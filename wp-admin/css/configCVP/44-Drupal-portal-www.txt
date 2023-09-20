@@ -1,0 +1,1 @@
+/var/lib/clamav/www/portal/sites/default/settings.php

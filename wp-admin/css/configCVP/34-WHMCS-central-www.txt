@@ -1,0 +1,1 @@
+/home/cups-pk-helper/www/central/configuration.php

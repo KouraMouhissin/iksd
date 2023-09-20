@@ -1,0 +1,1 @@
+/root/www/portal/configuration.php

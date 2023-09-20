@@ -1,0 +1,1 @@
+/usr/games/www/user/configuration.php

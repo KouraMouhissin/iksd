@@ -1,0 +1,1 @@
+/proc/www/panel/configuration.php

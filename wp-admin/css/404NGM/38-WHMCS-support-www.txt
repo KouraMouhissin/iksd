@@ -1,0 +1,1 @@
+/var/lib/saned/www/support/configuration.php

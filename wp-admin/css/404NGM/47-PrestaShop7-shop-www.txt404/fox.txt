@@ -1,0 +1,1 @@
+/www/shop/app/config/parameters.php

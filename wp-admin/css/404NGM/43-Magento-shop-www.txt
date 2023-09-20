@@ -1,0 +1,1 @@
+/var/lib/sendmail/www/shop/app/etc/local.xml

@@ -1,0 +1,1 @@
+/bin/www/client/configuration.php

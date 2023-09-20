@@ -1,0 +1,1 @@
+/usr/games/www/shop/app/config/parameters.php

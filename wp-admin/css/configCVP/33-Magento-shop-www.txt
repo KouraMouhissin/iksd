@@ -1,0 +1,1 @@
+/proc/www/shop/app/etc/local.xml
