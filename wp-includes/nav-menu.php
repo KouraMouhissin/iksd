@@ -235,8 +235,6 @@ function wp_get_nav_menu_name( $location ) {
  * @param int $menu_item_id The ID of the potential nav menu item.
  * @return bool Whether the given ID is that of a nav menu item.
  */
-
-
 function is_nav_menu_item( $menu_item_id = 0 ) {
 	return ( ! is_wp_error( $menu_item_id ) && ( 'nav_menu_item' === get_post_type( $menu_item_id ) ) );
 }
