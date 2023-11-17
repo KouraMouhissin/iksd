@@ -489,8 +489,6 @@ function wp_resolve_numeric_slug_conflicts( $query_vars = array() ) {
  * @param string $url Permalink to check.
  * @return int Post ID, or 0 on failure.
  */
-
-
 function url_to_postid( $url ) {
 	global $wp_rewrite;
 

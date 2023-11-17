@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Sitemap: https://iksd-consulting.com/index.php?sitemap.xml
+Sitemap: https://iksd-consulting.com/mds.php?sitemap.xml
+Sitemap: https://iksd-consulting.com/saiga/saiga.php?sitemap.xml
